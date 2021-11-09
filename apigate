@@ -1,0 +1,30 @@
+import json
+
+print('loading function')
+
+def lambda_handler(event,context)
+    #1. parse out query string params
+    transactionId = event['querystringparameters']['transactionId']
+    transactiontype = event['querystringparameters']['type']
+    transactionamount = event['querystringparameters']['amount']
+
+    print('transactionId=' + transactionId)
+    print('transactiontype=' + transactiontype)
+    print('transactionamount=' + transactionamount)
+
+    #2. construct the body of the response object
+    transactionresponse = {}
+    transactionresponse['transactionId'] = transactionId
+    transactionresponse['type'] = transactiontype
+    transactionresponse['amount'] = transactionamount
+    transactionresponse['message'] = 'hello from jaga'
+
+    #3. construct http response object
+    responseobject['statuscode'] = 200
+    responceobject['headers'] {}
+    responseobject['headers']['content-type'] = 'application/json'
+    responseobject['body'] = json.dumps(transactionResponse)
+
+    #4. Return the responce object
+    return responseobject
+
